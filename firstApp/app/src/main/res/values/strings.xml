@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">firstApp</string>
+    <string name="toName">Назвать</string>
+    <string name="name">Имя</string>
+    <string name="nameYourHamster">Назовите своего хомячка 🐹</string>
+    <string name="exit">Назад</string>
+    <string name="hamsterNameMessage">✨Теперь вашего хомяка зовут %s 🐹✨</string>
+</resources>
