@@ -1,15 +1,12 @@
 package com.example.thirdapp;
 
 import android.os.Bundle;
-import android.view.ViewGroup;
+import android.util.TypedValue;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,40 +14,76 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ConstraintLayout constraintLayout = new ConstraintLayout(this);
-        // создание TextView
-        TextView textView = new TextView(this);
-        // установка текста в TextView
-        textView.setText("Hello world!");
-        // установка высоты текста
-        textView.setTextSize(26);
-        // установка визуального интерфейса для activity
-        setContentView(textView);
+        setContentView(R.layout.second_layout);
 
-        // устанавливаем параметры размеров и расположение элемента
-        ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams
-                (ConstraintLayout.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        // выравнивание по левому краю ConstrainLayout
-        layoutParams.leftToLeft = ConstraintLayout.LayoutParams.PARENT_ID;
-        // выравнивание по верхней границе ConstraintLayout
-        layoutParams.topToTop = ConstraintLayout.LayoutParams.PARENT_ID;
-        // устанавливаем параметры для textView
-        textView.setLayoutParams(layoutParams);
-        // добавляем TextView в ConstraintLayout
-        constraintLayout.addView(textView);
-        // в качестве корневого
-        setContentView(constraintLayout);
+        TextView textView = findViewById(R.id.header);
+        textView.setBackgroundColor(0xFFC1B6D3);
+        textView.setTextColor(0xFF000000);
+        textView.setText("hello spring!");
 
 
-        // позволяет активности занимать всю часть экрана
-        // (в данном случае статус бар сверху становится цветом активности)
-        //EdgeToEdge.enable(this);
+        TextView sunrise = findViewById(R.id.sunrise);
+        sunrise.setBackgroundColor(0xFFC1B6D3);
+        sunrise.setTextColor(0xFF000000);
 
-        //setContentView(R.layout.activity_main);
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        });
+
+        TextView sunset = findViewById(R.id.sunset);
+        sunset.setBackgroundColor(0xFFC1B6D3);
+        sunset.setTextColor(0xFF000000);
+
+        // переопределение параметров
+        ConstraintLayout.LayoutParams layoutParamsTextView = new ConstraintLayout.LayoutParams
+                (ConstraintLayout.LayoutParams.WRAP_CONTENT, // Width
+                        ConstraintLayout.LayoutParams.MATCH_CONSTRAINT); // Height
+
+        layoutParamsTextView.verticalWeight = 1;
+
+        // добавление новых параметров к уже существующим
+        ConstraintLayout.LayoutParams layoutParamsSunrise =
+                (ConstraintLayout.LayoutParams) sunrise.getLayoutParams();
+
+        // добавление новых параметров к уже существующим
+        ConstraintLayout.LayoutParams layoutParamsSunset =
+                (ConstraintLayout.LayoutParams) sunset.getLayoutParams();
+
+        // добавление новых параметров к уже существующим
+//        ConstraintLayout.LayoutParams layoutParamsTextView =
+//                (ConstraintLayout.LayoutParams) textView.getLayoutParams();
+
+
+        // получаем значения в DP, чтобы использовать в setMargins()
+        int margin60InDP = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, 60, getResources().getDisplayMetrics());
+
+        int margin20InDP = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, 20, getResources().getDisplayMetrics());
+
+        layoutParamsTextView.setMargins(
+                margin60InDP,
+                margin20InDP,
+                margin60InDP,
+                margin20InDP); // установка внешних отступов
+
+        layoutParamsSunrise.setMargins(
+                margin60InDP,
+                margin20InDP,
+                margin60InDP,
+                margin20InDP); // установка внешних отступов
+
+
+        layoutParamsTextView.leftToLeft = ConstraintLayout.LayoutParams.PARENT_ID;
+        layoutParamsTextView.bottomToTop = sunset.getId();
+        layoutParamsTextView.rightToRight = ConstraintLayout.LayoutParams.PARENT_ID;
+        layoutParamsTextView.topToTop = ConstraintLayout.LayoutParams.PARENT_ID;
+
+
+
+        layoutParamsTextView.verticalBias = 0.5f; // установка сдвига по вертикали
+
+
+
+        textView.setLayoutParams(layoutParamsTextView);
+        sunrise.setLayoutParams(layoutParamsSunrise);
+        sunset.setLayoutParams(layoutParamsSunset);
     }
 }
