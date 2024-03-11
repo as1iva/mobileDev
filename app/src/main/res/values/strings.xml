@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">thirdApp</string>
-    <string name="sunrise">sunrise</string>
-    <string name="sunset">sunset</string>
-    <string name="welcomeMessage">Welcome to Android</string>
-</resources>
