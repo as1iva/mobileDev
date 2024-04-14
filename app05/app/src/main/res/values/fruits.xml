@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fruits">
+        <item>Абрикос</item>
+        <item>Айва</item>
+        <item>Апельсин</item>
+        <item>Арбуз</item>
+        <item>Банан</item>
+        <item>Виноград</item>
+        <item>Гранат</item>
+        <item>Груша</item>
+        <item>Гуава</item>
+        <item>Дыня</item>
+        <item>Инжир</item>
+        <item>Киви</item>
+        <item>Лимон</item>
+        <item>Манго</item>
+        <item>Питайа</item>
+    </string-array>
+</resources>

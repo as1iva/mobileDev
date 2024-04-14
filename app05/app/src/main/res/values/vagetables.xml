@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="vegetables">
+        <item>Морковь</item>
+        <item>Редис</item>
+        <item>Капуста</item>
+        <item>Укроп</item>
+        <item>Картофель</item>
+        <item>Горох</item>
+        <item>Петрушка</item>
+        <item>Тыква</item>
+        <item>Перец</item>
+        <item>Лук</item>
+        <item>Помидор</item>
+        <item>Огурец</item>
+        <item>Петрушка</item>
+    </string-array>
+</resources>

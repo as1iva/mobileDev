@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sweets">
+        <item>Твикс</item>
+        <item>Сникерс</item>
+        <item>Кит-кат</item>
+        <item>Баунти</item>
+        <item>Альпен голд</item>
+    </string-array>
+</resources>
